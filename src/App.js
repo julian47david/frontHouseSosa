@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { ThemeProvider } from '@mui/material/styles'
+import theme from './styles/theme'
+import { Route, Routes} from 'react-router-dom'
+import NavBar from './components/NavBar'
+import Inicio from './components/Inicio'
+import Cursos from './components/Cursos'
+import Blog from './components/Blog'
+import About from './components/About'
+import Contacto from './components/Contacto'
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+
+      <NavBar
+      />
+      <Routes>
+        <Route exact path='/Inicio' element={<Inicio />}/>
+        <Route exact path='/Cursos' element={<Cursos />}/>
+        <Route exact path='/Blog' element={<Blog />}/>
+        <Route exact path='/About' element={<About />}/>
+        <Route exact path='/Contacto' element={<Contacto />}/>
+      </Routes>
+
+    </ThemeProvider>
   );
 }
 
