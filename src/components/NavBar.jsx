@@ -8,18 +8,22 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { red } from '@mui/material/colors';
 import { Link } from 'react-router-dom'
+import CardWidget from './CardWidget';
 
-const color = red[500];
 
 const drawerWidth = 240;
-const navItems = ['Inicio', 'Cursos', 'Blog', 'About', 'Contacto'];
+const navItems = [
+  { text: 'Inicio', href: '/' },
+  { text: 'Cursos', href: '/Cursos' },
+  { text: 'Blog', href: '/Blog' },
+  { text: 'About', href: '/About' },
+  { text: 'Contacto', href: '/Contacto' }
+];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -37,15 +41,15 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.text} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <Button 
-                key={item} 
+                key={item.text} 
                 sx={{ textDecoration: 'none', color: 'white' }} 
                 component={Link}
                 color='primary'
-                to={`/${item}`}>
-                {item}
+                to={item.href}>
+                {item.text}
                 </Button>
             </ListItemButton>
           </ListItem>
@@ -81,15 +85,16 @@ function DrawerAppBar(props) {
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button 
-                  key={item} 
+                  key={item.text} 
                   sx={{ textDecoration: 'none', color: 'white' }} 
                   component={Link}
                   color='primary'
-                  to={`/${item}`}>
-                  {item}
+                  to={item.href}>
+                  {item.text}
               </Button>
             ))}
           </Box>
+          <CardWidget/>
           {/* <Box >
               <Button 
                 color='secondary' 
@@ -126,9 +131,6 @@ function DrawerAppBar(props) {
       </Box>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-
-
-
       </Box>
     </Box>
   );

@@ -15,17 +15,14 @@ import Contacto from './components/Contacto'
 function App() {
   return (
     <ThemeProvider theme={theme}>
-
-      <NavBar
-      />
+      <NavBar/>
       <Routes>
-        <Route exact path='/Inicio' element={<Inicio />}/>
+        <Route exact path='/' element={<Inicio />}/>
         <Route exact path='/Cursos' element={<Cursos />}/>
         <Route exact path='/Blog' element={<Blog />}/>
         <Route exact path='/About' element={<About />}/>
         <Route exact path='/Contacto' element={<Contacto />}/>
       </Routes>
-
     </ThemeProvider>
   );
 }

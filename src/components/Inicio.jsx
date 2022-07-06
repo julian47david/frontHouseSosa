@@ -1,8 +1,14 @@
 import React from 'react'
+import ItemListContainer from './ItemListContainer';
+
 
 const Inicio = () => {
     return (  
-        <h1>Inicio</h1>
+        <>
+            <ItemListContainer
+                greeting="Curso de Svelte"
+            />
+        </>
     );
 }
  
