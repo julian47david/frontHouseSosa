@@ -40,11 +40,11 @@ function DrawerAppBar(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.text} disablePadding>
+        {navItems.map((item, index) => (
+          <ListItem key={index} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <Button 
-                key={item.text} 
+                key={index} 
                 sx={{ textDecoration: 'none', color: 'white' }} 
                 component={Link}
                 color='primary'
@@ -83,9 +83,9 @@ function DrawerAppBar(props) {
             sx={{ display: { xs: 'none', sm: 'block' }, my: 0, fontFamily: 'Staatliches', letterSpacing: 2 }}
           >FRONT HOUSE</Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <Button 
-                  key={item.text} 
+                  key={index} 
                   sx={{ textDecoration: 'none', color: 'white' }} 
                   component={Link}
                   color='primary'
