@@ -1,0 +1,75 @@
+{
+    "products": [
+
+        {
+            "id": 1,
+            "title": "React",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 100,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        },
+        {
+            "id": 2,
+            "title": "React Native",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 220,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        },
+        {
+            "id": 3,
+            "title": "Svelte",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 200,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        },
+        {
+            "id": 4,
+            "title": "Cypress",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 95,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        },
+        {
+            "id": 5,
+            "title": "MongoDB",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 140,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        },
+        {
+            "id": 6,
+            "title": "Node.js",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 190,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        },
+        {
+            "id": 7,
+            "title": "Vue.js",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 170,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        },
+        {
+            "id": 8,
+            "title": "Javascript",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 99,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        },
+        {
+            "id": 9,
+            "title": "Sass",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 50,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        },
+        {
+            "id": 10,
+            "title": "Next.js",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus, blanditiis.",
+            "price": 250,
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/498px-Svelte_Logo.svg.png"
+        }
+    ]
+}

@@ -5,8 +5,8 @@ const Inicio = () => {
 
   return (
     <div>
+
       <ItemListContainer 
-        greeting="Curso de Svelte"
       />
 
     </div>

@@ -25,12 +25,15 @@ const ItemCount = () => {
             setCount(count - 1)
             setStock(stock + 1)
         }
+        if (stock === 0) {
+            setNoStock(false)
+        }
     };
 
     return (
         <Box sx={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center"}}>
             <Typography component={"span"} variant={"body2"}>
-                {nostock ? <p sx={{ lineHeight: 2}}>Sin Stock</p> : <p sx={{ lineHeight: 2}}>Stock disponible: {stock}</p>}
+                {nostock ? <p sx={{ lineHeight: 2}}>Sin Cupos</p> : <p sx={{ lineHeight: 2}}>Cupos disponibles: {stock}</p>}
             </Typography>
 
             <Box sx={{ display: "flex", flexDirection: "row", justifyContent: 'center', alignItems: "center", backgroundColor: "#D0D0D0", borderRadius: 1}}>
