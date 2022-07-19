@@ -12,14 +12,14 @@ const Item = ({dato}) => {
   const { title, description, price, image } = dato;
 
   return (
-    <Card sx={{ width: "200px", mx: "1rem", mb: 3, pb: 2, backgroundColor: "#e0e0e0"}}>
+    <Card sx={{display: "flex", flexDirection: 'column', justifyContent: 'space-between', alignItems: "center", width: "200px", height: "440px", mx: "1rem", mb: 3, backgroundColor: "#e0e0e0"}}>
       <CardMedia
         component="img"
         alt={title}
-        sx={{ width: '80%', px: 3, pt: 2 }}
+        sx={{ width: 'auto', height: '90px', mx: "auto", pt: 2 }}
         image={image}
       />
-      <CardContent color="black">
+      <CardContent sx={{ marginTop: 'auto'}} color="black">
         <Typography 
           gutterBottom 
           variant="h5" 
@@ -33,7 +33,7 @@ const Item = ({dato}) => {
           color="text.secondary"
           sx={{ fontSize: 16, textAlign: 'center', my:3 }} 
         >
-          {description}
+          {/* {description} */}
         </Typography>
         <Box sx={{ backgroundColor: "#02354124", borderRadius: '5px', py: 1, px: 2  }}>
             <Typography component={"p"} variant={"body2"} sx={{ mb: 0, textAlign: 'center', cursor: 'crosshair', fontWeight: 500 }} color='#333'>
@@ -43,7 +43,7 @@ const Item = ({dato}) => {
       </CardContent>
       <CardActions sx={{ display: "flex", justifyContent: 'center', alignItems: "center"}}>
         <Button size="small" 
-          sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, color: '#fff',
+          sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, mb: 1, color: '#fff',
             ':hover': {
               backgroundColor: '#008b7d',
               color: 'white'

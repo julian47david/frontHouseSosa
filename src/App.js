@@ -5,6 +5,7 @@ import { Route, Routes} from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Inicio from './components/Inicio'
 import Cursos from './components/Cursos'
+import ItemDetailContainer from './components/ItemDetailContainer'
 import Blog from './components/Blog'
 import About from './components/About'
 import Contacto from './components/Contacto'
@@ -17,11 +18,13 @@ function App() {
     <ThemeProvider theme={theme}>
       <NavBar/>
       <Routes>
-        <Route exact path='/' element={<Inicio />}/>
-        <Route exact path='/Cursos' element={<Cursos />}/>
-        <Route exact path='/Blog' element={<Blog />}/>
-        <Route exact path='/About' element={<About />}/>
-        <Route exact path='/Contacto' element={<Contacto />}/>
+        <Route path='/' element={<Inicio/>}/>
+        <Route path='/Cursos' element={<Cursos/>}/>
+        <Route path='/Details/:id' element={<ItemDetailContainer/>}/>
+        <Route path='/Blog' element={<Blog/>}/>
+        <Route path='/About' element={<About/>}/>
+        <Route path='/Contacto' element={<Contacto/>}/>
+        <Route path='*' element={<h1>Ups! 404 Not Found</h1>}/>
       </Routes>
     </ThemeProvider>
   );
