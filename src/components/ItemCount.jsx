@@ -31,12 +31,12 @@ const ItemCount = () => {
     };
 
     return (
-        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center"}}>
+        <Box sx={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center", zIndex: 100}}>
             <Typography component={"span"} variant={"body2"}>
-                {nostock ? <p sx={{ lineHeight: 2}}>Sin Cupos</p> : <p sx={{ lineHeight: 2}}>Cupos disponibles: {stock}</p>}
+                {nostock ? <p sx={{ lineHeight: 2}}>Sin Stock</p> : <p sx={{ lineHeight: 2}}>Stock disponible: {stock}</p>}
             </Typography>
 
-            <Box sx={{ display: "flex", flexDirection: "row", justifyContent: 'center', alignItems: "center", backgroundColor: "#D0D0D0", borderRadius: 1}}>
+            <Box sx={{height: '40px', display: "flex", flexDirection: "row", justifyContent: 'center', alignItems: "center", backgroundColor: "#D0D0D0", borderRadius: 1}}>
                 <Button
                 onClick={addNumber}
                 sx={{ p: 0 }}

@@ -23,32 +23,6 @@ const ItemDetailContainer = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
-
-  // const getProduct = () => {
-  //   return new Promise((res, rej) => {
-  //     res(() => {
-  //       const resp = Products.find(iD)
-  //       return resp
-  //     })
-  //     rej('No se pudo cargar')
-  //   })
-  // }
-  
-  // useEffect(() => {
-  //   setTimeout(() => {    
-  //     getProduct().then((resp) => {
-  //       console.log(resp);
-  //       setProduct(resp);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     })
-  //   }, 2000);
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
-    
-
   return (
     
     <Box

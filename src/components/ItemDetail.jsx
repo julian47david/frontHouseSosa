@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({ data }) => {
 
@@ -42,9 +43,12 @@ const ItemDetail = ({ data }) => {
           </Typography>
       </Box>
     </CardContent>
-    <CardActions sx={{ display: "flex", justifyContent: 'center', alignItems: "center"}}>
+    <CardActions sx={{ display: "flex", flexDirection: 'column', justifyContent: 'center', alignItems: "center"}}>
+
+      <ItemCount/>
+
       <Button size="small" 
-        sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, mb: 1, color: '#fff',
+        sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, my: 1, color: '#fff',
           ':hover': {
             backgroundColor: '#008b7d',
             color: 'white'

@@ -7,9 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const Item = ({dato}) => {
-
-  const { title, description, price, image } = dato;
+const Item = ({ title, image, price, stock }) => {
 
   return (
     <Card sx={{display: "flex", flexDirection: 'column', justifyContent: 'space-between', alignItems: "center", width: "200px", height: "440px", mx: "1rem", mb: 3, backgroundColor: "#e0e0e0"}}>
@@ -24,7 +22,7 @@ const Item = ({dato}) => {
           gutterBottom 
           variant="h5" 
           component="div" 
-          sx={{ fontSize: 18, fontWeight: 700, textAlign: 'center', mb:3 }}
+          sx={{ fontSize: 18, fontWeight: 700, textAlign: 'center', mb:3, overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: '2', WebkitBoxOrient: 'vertical'}}
         >
           {title}
         </Typography>
@@ -36,14 +34,21 @@ const Item = ({dato}) => {
           {/* {description} */}
         </Typography>
         <Box sx={{ backgroundColor: "#02354124", borderRadius: '5px', py: 1, px: 2  }}>
-            <Typography component={"p"} variant={"body2"} sx={{ mb: 0, textAlign: 'center', cursor: 'crosshair', fontWeight: 500 }} color='#333'>
+            <Typography component={"p"} variant={"body2"} sx={{ mb: 0, textAlign: 'center', fontWeight: 500 }} color='#333'>
             ${ price }
             </Typography>
         </Box>
       </CardContent>
-      <CardActions sx={{ display: "flex", justifyContent: 'center', alignItems: "center"}}>
+      <CardActions sx={{ display: "flex", flexDirection: 'column', justifyContent: 'center', alignItems: "center"}}>
+
+        <Box sx={{ backgroundColor: "#02354124", borderRadius: '5px', py: 1, px: 2  }}>
+            <Typography component={"p"} variant={"body2"} sx={{ mb: 0, textAlign: 'center', fontWeight: 'Normal' }} color='#333'>
+            Stock Disponible: 5
+            </Typography>
+        </Box>
+
         <Button size="small" 
-          sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, mb: 1, color: '#fff',
+          sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, my: 1, color: '#fff',
             ':hover': {
               backgroundColor: '#008b7d',
               color: 'white'

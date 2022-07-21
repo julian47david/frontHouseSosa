@@ -12,20 +12,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import CardWidget from './CardWidget';
+import API from '../API/api'
+import { useEffect } from 'react';
+import { useState } from 'react';
+
 
 
 const drawerWidth = 240;
-const navItems = [
-  { text: 'Inicio', href: '/' },
-  { text: 'Cursos', href: '/Cursos' },
-  { text: 'Blog', href: '/Blog' },
-  { text: 'About', href: '/About' },
-  { text: 'Contacto', href: '/Contacto' }
-];
+const navItems = [];
 
-function DrawerAppBar(props) {
+function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -33,24 +31,52 @@ function DrawerAppBar(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const [categorias, setCategorias] = useState([]);
+
+  const getCategorias = async () => {
+    const categorias = await API.get(`/products/categories`);
+    setCategorias(categorias.data);
+  };
+
+  useEffect(() => {
+    getCategorias();
+  }, []);
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 , fontFamily: 'Staatliches'}}>
+      <Typography 
+        variant="h6" 
+        sx={{ my: 2 , fontFamily: 'Staatliches',textDecoration: 'none', color: 'white', cursor: 'pointer'}}
+        component={Link}
+        color='primary'
+        to={'/'}
+      >
         FH
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item, index) => (
-          <ListItem key={index} disablePadding>
+        <ListItem  disablePadding>
+          <ListItemButton sx={{ textAlign: 'center' }}>
+            <Button 
+              sx={{ textDecoration: 'none', color: 'white' }} 
+              component={Link}
+              color='primary'
+              to={'/'}>
+              Inicio
+            </Button>
+          </ListItemButton>
+        </ListItem>
+        {categorias.map((category) => (
+          <ListItem key={category} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <Button 
-                key={index} 
+                key={category} 
                 sx={{ textDecoration: 'none', color: 'white' }} 
                 component={Link}
                 color='primary'
-                to={item.href}>
-                {item.text}
-                </Button>
+                to={`/category/${category}`}>
+                {category}
+              </Button>
             </ListItemButton>
           </ListItem>
         ))}
@@ -80,19 +106,47 @@ function DrawerAppBar(props) {
 
           <Typography
             variant='h5' 
-            sx={{ display: { xs: 'none', sm: 'block' }, my: 0, fontFamily: 'Staatliches', letterSpacing: 2 }}
+            sx={{ display: { xs: 'none', sm: 'block' }, my: 0, fontFamily: 'Staatliches', letterSpacing: 2,textDecoration: 'none', color: 'white', cursor: 'pointer' }}
+            component={Link}
+            color='primary'
+            to={'/'}
           >FRONT HOUSE</Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item, index) => (
-              <Button 
-                  key={index} 
-                  sx={{ textDecoration: 'none', color: 'white' }} 
-                  component={Link}
-                  color='primary'
-                  to={item.href}>
-                  {item.text}
-              </Button>
-            ))}
+            <Button 
+              sx={{ textDecoration: 'none', color: 'white' }} 
+              component={Link}
+              color='primary'
+              to={'/'}>
+              Inicio
+            </Button>
+            <Button 
+              sx={{ textDecoration: 'none', color: 'white' }} 
+              component={Link}
+              color='primary'
+              to={`/category/electronics`}>
+              Electronica
+            </Button>
+            <Button 
+              sx={{ textDecoration: 'none', color: 'white' }} 
+              component={Link}
+              color='primary'
+              to={`/category/jewelery`}>
+              Joyeria
+            </Button>
+            <Button 
+              sx={{ textDecoration: 'none', color: 'white' }} 
+              component={Link}
+              color='primary'
+              to={`/category/men's clothing`}>
+              Ropa de Hombre
+            </Button>
+            <Button 
+              sx={{ textDecoration: 'none', color: 'white' }} 
+              component={Link}
+              color='primary'
+              to={`/category/women's clothing`}>
+              Ropa de Mujer
+            </Button>
           </Box>
           <CardWidget/>
           {/* <Box >
@@ -136,7 +190,7 @@ function DrawerAppBar(props) {
   );
 }
 
-DrawerAppBar.propTypes = {
+NavBar.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
@@ -144,4 +198,4 @@ DrawerAppBar.propTypes = {
   window: PropTypes.func,
 };
 
-export default DrawerAppBar;
+export default NavBar;
