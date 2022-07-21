@@ -16,10 +16,7 @@ const ItemDetailContainer = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => { 
-      consultarApi();
-    }, 2000);
-
+    consultarApi();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
