@@ -5,9 +5,9 @@ import { Typography, Icon } from '@mui/material';
 import RemoveTwoToneIcon from '@mui/icons-material/RemoveTwoTone';
 import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
 
-const ItemCount = () => {
+const ItemCount = ({count, setCount}) => {
 
-    const [count, setCount] = useState(1)
+
     const [stock, setStock] = useState(5)
     const [nostock, setNoStock] = useState(false)
 
@@ -15,13 +15,13 @@ const ItemCount = () => {
         if (stock === 1) {
             setNoStock(true)
         }
-        if (count < 6 ){
+        if (count < 5 ){
             setCount(count + 1)
             setStock(stock - 1)
         }
     };
     const subNumber = () => {
-        if (count > 1) {
+        if (count > 0) {
             setCount(count - 1)
             setStock(stock + 1)
         }

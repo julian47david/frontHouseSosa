@@ -8,8 +8,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ItemCount from './ItemCount';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ data }) => {
+
+  const [count, setCount] = useState(0)
 
   const { title, description, price, image } = data;
 
@@ -18,7 +22,7 @@ const ItemDetail = ({ data }) => {
     <CardMedia
       component="img"
       alt={title}
-      sx={{ width: 'auto', height: '150px', mx: "auto", pt: 2 }}
+      sx={{ width: 'auto', height: '150px', mx: "auto", mt: 2, boxShadow: '0px 0px 2px 3px rgb(255 255 255)' }}
       image={image}
     />
     <CardContent sx={{ marginTop: 'auto'}} color="black">
@@ -37,24 +41,48 @@ const ItemDetail = ({ data }) => {
       >
         {description}
       </Typography>
-      <Box sx={{ backgroundColor: "#02354124", borderRadius: '5px', py: 1, px: 2  }}>
-          <Typography component={"p"} variant={"body2"} sx={{ mb: 0, textAlign: 'center', cursor: 'crosshair', fontWeight: 500 }} color='#333'>
+      <Box sx={{ width: 'fit-content', backgroundColor: "#02354124", borderRadius: '5px', py: 1, px: 2, m: 'auto'  }}>
+          <Typography component={"p"} variant={"body2"} sx={{  mb: 0, textAlign: 'center', cursor: 'crosshair', fontWeight: 500 }} color='#333'>
           ${ price }
           </Typography>
       </Box>
     </CardContent>
     <CardActions sx={{ display: "flex", flexDirection: 'column', justifyContent: 'center', alignItems: "center"}}>
 
-      <ItemCount/>
+      {
+        count === 0 
+        ? <>
+            <ItemCount
+              count={count}
+              setCount={setCount}
+              />
+            <Button size="small" 
+              sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, mt: 2, mb: 1, color: '#fff',
+              ':hover': {
+                backgroundColor: '#008b7d',
+                color: 'white'
+              }
+            }}
+            
+            >
+              Añadir al Carrito
+            </Button>
+          </>
+        : <Button size="small" 
+            sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, mt: 2, mb: 1, color: '#fff', textDecoration: 'none',
+              ':hover': {
+                backgroundColor: '#008b7d',
+                color: 'white'
+              }
+            }}
+            component={Link}
+            to={'/Cart'}
 
-      <Button size="small" 
-        sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, my: 1, color: '#fff',
-          ':hover': {
-            backgroundColor: '#008b7d',
-            color: 'white'
-          }
-        }}
-      >Comprar</Button>
+          >
+            Ir al Carrito
+          </Button>
+      }
+      
     </CardActions>
     </Card>
 

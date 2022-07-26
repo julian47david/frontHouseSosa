@@ -14,7 +14,7 @@ const Item = ({ title, image, price, stock }) => {
       <CardMedia
         component="img"
         alt={title}
-        sx={{ width: 'auto', height: '90px', mx: "auto", pt: 2 }}
+        sx={{ width: 'auto', height: '90px', mx: "auto", mt: 2, boxShadow: '0px 0px 2px 3px rgb(255 255 255)' }}
         image={image}
       />
       <CardContent sx={{ marginTop: 'auto'}} color="black">
@@ -26,17 +26,10 @@ const Item = ({ title, image, price, stock }) => {
         >
           {title}
         </Typography>
-        <Typography 
-          variant="body2" 
-          color="text.secondary"
-          sx={{ fontSize: 16, textAlign: 'center', my:3 }} 
-        >
-          {/* {description} */}
-        </Typography>
         <Box sx={{ backgroundColor: "#02354124", borderRadius: '5px', py: 1, px: 2  }}>
-            <Typography component={"p"} variant={"body2"} sx={{ mb: 0, textAlign: 'center', fontWeight: 500 }} color='#333'>
+          <Typography component={"p"} variant={"body2"} sx={{ mb: 0, textAlign: 'center', fontWeight: 500 }} color='#333'>
             ${ price }
-            </Typography>
+          </Typography>
         </Box>
       </CardContent>
       <CardActions sx={{ display: "flex", flexDirection: 'column', justifyContent: 'center', alignItems: "center"}}>
