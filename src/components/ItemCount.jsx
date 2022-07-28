@@ -5,30 +5,7 @@ import { Typography, Icon } from '@mui/material';
 import RemoveTwoToneIcon from '@mui/icons-material/RemoveTwoTone';
 import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
 
-const ItemCount = ({count, setCount}) => {
-
-
-    const [stock, setStock] = useState(5)
-    const [nostock, setNoStock] = useState(false)
-
-    const addNumber = () => {
-        if (stock === 1) {
-            setNoStock(true)
-        }
-        if (count < 5 ){
-            setCount(count + 1)
-            setStock(stock - 1)
-        }
-    };
-    const subNumber = () => {
-        if (count > 0) {
-            setCount(count - 1)
-            setStock(stock + 1)
-        }
-        if (stock === 0) {
-            setNoStock(false)
-        }
-    };
+const ItemCount = ({addNumber, subNumber, count, stock, nostock}) => {
 
     return (
         <Box sx={{ display: "flex", flexDirection: "column", justifyContent: 'center', alignItems: "center", zIndex: 100}}>

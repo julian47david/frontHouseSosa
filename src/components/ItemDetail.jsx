@@ -1,5 +1,4 @@
 import React from 'react'
-import Products from '../data/Products.json'
 import Box from "@mui/material/Box";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -13,7 +12,32 @@ import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ data }) => {
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [stock, setStock] = useState(5)
+  const [nostock, setNoStock] = useState(false)
+  const [controller, setController] = useState(false)
+
+  const addNumber = () => {
+      if (stock === 1) {
+          setNoStock(true)
+      }
+      if (count < 5 ){
+          setCount(count + 1)
+          setStock(stock - 1)
+      }
+  };
+  const subNumber = () => {
+      if (count > 0) {
+          setCount(count - 1)
+          setStock(stock + 1)
+      }
+      if (stock === 0) {
+          setNoStock(false)
+      }
+  };
+  const control = () => {
+    return setController(true);
+  }
 
   const { title, description, price, image } = data;
 
@@ -50,20 +74,23 @@ const ItemDetail = ({ data }) => {
     <CardActions sx={{ display: "flex", flexDirection: 'column', justifyContent: 'center', alignItems: "center"}}>
 
       {
-        count === 0 
+        !controller 
         ? <>
             <ItemCount
+              addNumber={addNumber}
+              subNumber={subNumber}
               count={count}
-              setCount={setCount}
+              stock={stock}
+              nostock={nostock}
               />
             <Button size="small" 
               sx={{backgroundColor: "#023541", borderRadius: '5px', py: 1, px: 2, mt: 2, mb: 1, color: '#fff',
-              ':hover': {
-                backgroundColor: '#008b7d',
-                color: 'white'
-              }
-            }}
-            
+                ':hover': {
+                  backgroundColor: '#008b7d',
+                  color: 'white'
+                }
+              }}
+              onClick={control}
             >
               Añadir al Carrito
             </Button>
@@ -77,7 +104,6 @@ const ItemDetail = ({ data }) => {
             }}
             component={Link}
             to={'/Cart'}
-
           >
             Ir al Carrito
           </Button>
